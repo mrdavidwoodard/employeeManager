@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head.ejs %>
+  </head>
+  <body>
+    <!-- header/nav -->
+    <header id="page-header">
+      <% include ../partials/header.ejs %>
+    </header>
+
+    <!-- page body -->
+    <div id="main-body">
+      <div class="container">
+        <module id="employeeApp">
+    <!-- load module -->
+    <% include ../partials/list.ejs %>
+        </module>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <div id="page-footer">
+      <div class="container">
+        <footer id="page-footer">
+          <% include ../partials/footer.ejs %>
+        </footer>
+      </div>
+    </div>
+
+  </body>
+</html>

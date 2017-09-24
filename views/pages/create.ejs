@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Employee Database Manager</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <div class="navbar navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="/" class="navbar-brand">Employee Database Manager</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/employees">Employees</a>
+          </li>
+          <li>
+            <a href="/create">Add New Employee</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <h1>Create New Employee</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <form action="/create" method="POST">
+          <div class="form-group">
+            <label>Employee ID #</label>
+            <input type="text" name="employeeID" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" name="firstName" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" name="lastName" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label>Title</label>
+            <input type="text" name="title" class="form-control" >
+          </div>
+
+          <div class="form-group">
+            <label>Start Date</label>
+            <input type="text" name="startDate" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label>Wage</label>
+            <input type="text" name="wage" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label>Birthday</label>
+            <input type="text" name="birthDate" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-success btn-lg">Create</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="container">
+    <footer>
+      <div class="row footer">
+        <p>Created by David Woodard &copy; Employee Database Manager 2017 : MIT</p>
+      </div>
+    </footer>
+  </div>
+
+    </div>
+  </body>
+</html>

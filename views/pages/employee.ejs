@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head.ejs %>
+  </head>
+  <body>
+    <header id="page-header">
+    <% include ../partials/header.ejs %>
+    </header>
+
+    <main id="main-body">
+      <div class="jumbotron">
+        <div class="container">
+          <div id="employeeApp" class="col-xs-12">
+            <p>Employee ID# : <%= employee.employeeID %></p>
+            <h1><%= employee.lastName %>, <%= employee.firstName %></h1>
+            <p><strong>Job Title: </strong><%= employee.title %></p>
+            <p><strong>Current Wage: </strong><%= employee.wage %></p>
+            <p><strong>Start Date: </strong><%= employee.startDate %></p>
+            <p><strong>Birthday: </strong><%= employee.birthDate %></p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+
+    </footer>
+
+  </body>
+</html>

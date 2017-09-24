@@ -1,0 +1,40 @@
+<div class="employeeList">
+  <h1>Employees List</h1>
+</div>
+
+<table class="table table-bordered table-hover table-striped">
+  <thead>
+    <tr>
+      <th>Employee ID#</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Title</th>
+      <th>Start Date</th>
+      <th>Birthday</th>
+      <th>Wage</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+        <% for (var i=0; i<employees.length; i++) {%>
+            <tr>
+              <td><%= employees[i].employeeID %></td>
+              <td><%= employees[i].firstName %></td>
+              <td><%= employees[i].lastName %></td>
+              <td><%= employees[i].title %></td>
+              <td><%= employees[i].startDate %></td>
+              <td><%= employees[i].birthDate %></td>
+              <td><%= employees[i].wage %></td>
+              <td>
+                  <a href="/employee/<%= employees[i].employeeID %>" class="btn btn-sm btn-primary">View</a>
+                  <a href="/employee/<%= employees[i].employeeID %>/edit" class="btn btn-sm btn-warning">Edit</a>
+                  <a href="/employee/<%= employees[i].employeeID %>/delete" class="btn btn-sm btn-danger">Delete</a>
+              </td>
+          </tr>
+      <% } %>
+  </tbody>
+</table>
+
+<div class="row">
+  <h4>Total number of employees: <%= employees.length %></h4>
+</div>
