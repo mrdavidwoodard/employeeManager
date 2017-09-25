@@ -27,11 +27,11 @@ function showList(req, res) {
   });
 }
 
-function showSingle(req, res) {
-  Employee.findOne({ employeeID : req.params.employeeID }, (err, employee) => {
-    if(err) {
+function showSingle(req, res, next) {
+  let singleEmployee = Employee.findOne({ employeeID : req.params.employeeID }, (err, employee) => {
+    if (employee == null) {
       res.status(404);
-      res.send("employee not found");
+      next(`EmployeeID ${req.params.employeeID} not found`);
     }
     console.log(employee);
     res.render("pages/employee", { employee : employee });
@@ -57,7 +57,6 @@ function createEmployee(req, res) {
   newEmployee.save((err) => {
     if (err)
       throw err;
-/*).then((newEmployee) => {res.send(newEmployee);}).catch((err) => {res.send(err);}); */
     res.redirect(`/employee/${newEmployee.employeeID}`);
   });
 }
@@ -81,15 +80,8 @@ function editEmployee(req, res) {
     employee.save((err) => {
       if (err)
         throw err;
-        res.redirect(`/employee/${newEmployee.employeeID}`)
-    })
-
-    if(err) {
-      res.status(404);
-      res.send("employee not found");
-    }
-    console.log(employee);
-    res.render("pages/employee", { employee : employee });
+        res.redirect(`/employee/${req.params.employeeID}`)
+    });
   });
 }
 
@@ -98,3 +90,21 @@ function deleteEmployee(req, res) {
     res.redirect("/employees");
   });
 }
+
+
+/* future search function
+function searchEmployees(req, res) {
+  let employeeSearch = Employee.findOne({ employeeID : req.params.employeeID }, (err, employee) => {
+    if(parseInt(employeeSearch)) {
+      let matches = Employee.filter(m => m.employeeID == employeeSearch);
+      if(!matches.length) {
+        next(`Could not find employee ${employeeID} in database`);
+      }
+    } else {
+      res.locals.employees = matches[0];
+      next(`Employee for ${employeeID} is not a number`);
+    }
+    console.log(singleEmployee);
+    res.render("pages/employee", { employee : employee });
+  });
+} */

@@ -24,6 +24,10 @@ app.use(bodyParser.urlencoded({ extended: true}));
 
 app.use(require("./app/routes"));
 
+app.use(function(err, req, res, next) {
+  res.send(`<h1 class='well'>Error: Could not display employee information.</h1>${err}`);
+});
+
 app.listen(port, () => {
     console.log("server connected at: " + host + " " + port);
   })
